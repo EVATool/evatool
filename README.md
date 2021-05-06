@@ -66,16 +66,18 @@ Link to wiki (not yet done) (wiki explains in detail)
 ### Login and users
 
 
-
 ### Administration (keycloak and mysql database)
 
 
+## Known Issues
+
+- Starting the docker compose on docker desktop leads to the database container being extremely slow. It is so slow that the backend container tries to access the booting database and runs into an unhandled exception leading to the backend container stopping. The database container needs 2-5 minutes. The backend container can be manually restarted after that and the EVATool should run.
 
 ## TODO
 
 - (DONE) Get env vars into frontend
 - (DONE) Get env vars into backend
-- Get mysql to start in not 5 minutes (!) and backend must wait for healthy database
+- (NOT REALLY A PROBLEM?) Get mysql to start in not 5 minutes (!) and backend must wait for healthy database (only slow on windows docker!! Deployment on internal linux server was SUPER FAST)
 - (DONE) Get docker-compose to work
 - (DONE) Make how to install and wiki stuff in evatool repo
 - Add keycloak to docker compose
@@ -83,3 +85,8 @@ Link to wiki (not yet done) (wiki explains in detail)
 - (Wait for GP presentation) Use UID server as public demo? (add easy login, registration, forgot password + add keycloak!)
 
 
+Docker save new tag:
+docker pull org/name:latest
+docker tag org/name:latest org/name:newtag
+docker login
+docker push org/name:newtag
