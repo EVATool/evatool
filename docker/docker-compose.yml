@@ -20,8 +20,8 @@ services:
         volumes:
             - database_volume:/var/lib/mysql
 
-    keycloak:
-        container_name: evatool_keycloak
+    auth:
+        container_name: evatool_auth
         image: jboss/keycloak:10.0.2
         environment: 
             KEYCLOAK_USER: admin
