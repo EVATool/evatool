@@ -1,14 +1,22 @@
 # evatool
 
-## Use EVATool in your company
+## I Want to use EVATool in my Company
 
-Note: if you want to update EVATool, you have to stop the container first with...
+Note: if you want to update EVATool, you have to stop the container first with... and pull the newest version of this repo instead of cloning it
 
 
 
-## EVATool how to use
+## EVATool Crash Course
 
-Link to wiki (not yet done)
+Link to wiki (not yet done) (wiki explains in detail)
+
+### Login and users
+
+
+
+### Administration (keycloak and mysql database)
+
+
 
 ## Temp
 HOW TO INSTALL:
@@ -25,6 +33,6 @@ TODO
 - (DONE: only add keycloak) Get docker-compose to work
 - Make how to install and wiki stuff in evatool repo
 - Deploy to UID server in both main deploy GitHub Actions
-- use UID server as dev server and also as public demo?
+- use UID server as public demo? (add easy login, registration, forgot password + add keycloak!)
 
 
