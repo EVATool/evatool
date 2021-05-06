@@ -75,7 +75,7 @@ Link to wiki (not yet done) (wiki explains in detail)
 
 - (DONE) Get env vars into frontend
 - (DONE) Get env vars into backend
-- Get mysql to start in not 5 minutes (!)
+- Get mysql to start in not 5 minutes (!) and backend must wait for healthy database
 - (DONE) Get docker-compose to work
 - (DONE) Make how to install and wiki stuff in evatool repo
 - Add keycloak to docker compose
