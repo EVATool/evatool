@@ -6,6 +6,10 @@ Note: if you want to update EVATool, you have to stop the container first with..
 
 
 
+## EVATool how to use
+
+Link to wiki (not yet done)
+
 ## Temp
 HOW TO INSTALL:
 
@@ -16,10 +20,10 @@ docker-compose -p evatool up
 
 TODO
 - Get env vars into frontend
-- Get env vars into backend
+- (DONE) Get env vars into backend
 - Get mysql to start in not 5 minutes (!)
-- Get docker-compose to work (only add keycloak)
-- Make how to install and wiki stuff in new evatool repo (including everything in this folder)
+- (DONE: only add keycloak) Get docker-compose to work
+- Make how to install and wiki stuff in evatool repo
 - Deploy to UID server in both main deploy GitHub Actions
 - use UID server as dev server and also as public demo?
 
