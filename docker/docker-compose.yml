@@ -47,13 +47,4 @@ services:
         depends_on:
             - backend
 
-#    keycloak:
-#        container_name: evatool_keycloak
-#        image: ??
-#        environment:
-#            - ???
-#        networks:
-#            - backend
-#        depends_on:
-#            - database
-#             - backend
+
