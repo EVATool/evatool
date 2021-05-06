@@ -84,7 +84,7 @@ Link to wiki (not yet done) (wiki explains in detail)
 - Add keycloak to docker compose
 - (Wait for GP presentation) Deploy to UID server in both main deploy GitHub Actions
 - (Wait for GP presentation) Use UID server as public demo? (add easy login, registration, forgot password + add keycloak!)
-
+- Add Flyway
 
 Docker save new tag:
 docker pull org/name:latest
