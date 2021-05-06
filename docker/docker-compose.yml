@@ -20,6 +20,26 @@ services:
         volumes:
             - database_volume:/var/lib/mysql
 
+    keycloak:
+        container_name: evatool_keycloak
+        image: jboss/keycloak:10.0.2
+        environment: 
+            KEYCLOAK_USER: admin
+            KEYCLOAK_PASSWORD: password
+            DB_ADDR: mysql
+            DB_USER: root
+            DB_PASSWORD: password
+            DB_PORT: 3306
+            DB_DATABASE: keycloakdb
+#            KEYCLOAK_IMPORT: /tmp/import-realm.json
+        ports:
+            - 6006:8080
+        networks:
+            - backend
+        depends_on:
+            - database
+            - backend
+
     backend:
         container_name: evatool_backend
         image: evatool/evatool-backend:latest
@@ -47,13 +67,4 @@ services:
         depends_on:
             - backend
 
-#    keycloak:
-#        container_name: evatool_keycloak
-#        image: ??
-#        environment:
-#            - ???
-#        networks:
-#            - backend
-#        depends_on:
-#            - database
-#             - backend
+
