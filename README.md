@@ -75,17 +75,15 @@ Link to wiki (not yet done) (wiki explains in detail)
 
 ## TODO
 
-- Rework/Rename GitHub Actions and their steps
-- (DONE) Get env vars into frontend
-- (DONE) Get env vars into backend
-- (NOT REALLY A PROBLEM?) Get mysql to start in not 5 minutes (!) and backend must wait for healthy database (only slow on windows docker!! Deployment on internal linux server was SUPER FAST)
-- (DONE) Get docker-compose to work
-- (DONE) Make how to install and wiki stuff in evatool repo
-- Add keycloak to docker compose
+- Rework/Rename GitHub Actions and their steps (better names, no code duplication, actions with arguments [main/dev -> latest/dev docker hub image])
+- Add keycloak to docker compose (Frontend and Backend should have envs: test, dev, prod)
 - (Wait for GP presentation) Deploy to UID server in both main deploy GitHub Actions
 - (Wait for GP presentation) Use UID server as public demo? (add easy login, registration, forgot password + add keycloak!)
 - Add Flyway
 
+
+
+Upload tags manually:
 Docker save new tag:
 docker pull org/name:latest
 docker tag org/name:latest org/name:newtag
