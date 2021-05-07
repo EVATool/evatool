@@ -11,6 +11,7 @@ services:
     database:
         container_name: evatool_database
         image: mysql:8.0.24
+        command: mysqld --lower_case_table_names=1 
         environment:
             MYSQL_ROOT_PASSWORD: ${DATABASE_PASSWORD}
             MYSQL_DATABASE: keycloakdb
@@ -23,18 +24,20 @@ services:
 
     auth:
         container_name: evatool_auth
-        image: quay.io/keycloak/keycloak:13.0.0
+#        image: quay.io/keycloak/keycloak:13.0.0
+        image: jboss/keycloak
 #        image: jboss/keycloak:10.0.2
-        environment: 
+        environment:
+            DB_VENDOR: MYSQL
+            DB_ADDR: database
+            DB_PORT: ${DATABASE_PORT}
+            DB_DATABASE: keycloakdb
+            DB_USER: root
+            DB_PASSWORD: ${DATABASE_PASSWORD}
             KEYCLOAK_USER: admin
             KEYCLOAK_PASSWORD: admin
-#            DB_ADDR: database
-#            DB_VENDOR: mysql
-#            DB_USER: root
-#            DB_PASSWORD: ${DATABASE_PASSWORD}
-#            DB_PORT: ${DATABASE_PORT}
-#            DB_DATABASE: keycloakdb
 #            KEYCLOAK_IMPORT: keycloak-auth-realm.json
+#            JDBC_PARAMS: "connectTimeout=30000"
         ports:
             - 6006:8080
         networks:
