@@ -75,7 +75,7 @@ Link to wiki (not yet done) (wiki explains in detail)
 
 ## TODO
 
-- Rename GitHub Actions and their steps
+- Rework/Rename GitHub Actions and their steps
 - (DONE) Get env vars into frontend
 - (DONE) Get env vars into backend
 - (NOT REALLY A PROBLEM?) Get mysql to start in not 5 minutes (!) and backend must wait for healthy database (only slow on windows docker!! Deployment on internal linux server was SUPER FAST)
