@@ -29,10 +29,10 @@ services:
             KEYCLOAK_USER: admin
             KEYCLOAK_PASSWORD: admin
 #            DB_ADDR: database
-#            DB_VENDOR: MYSQL
+#            DB_VENDOR: mysql
 #            DB_USER: root
-#            DB_PASSWORD: password
-#            DB_PORT: 3306
+#            DB_PASSWORD: ${DATABASE_PASSWORD}
+#            DB_PORT: ${DATABASE_PORT}
 #            DB_DATABASE: keycloakdb
 #            KEYCLOAK_IMPORT: keycloak-auth-realm.json
         ports:
