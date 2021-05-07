@@ -1,4 +1,10 @@
-# evatool
+# EVATool (Ethical Value Assessment Tool)
+
+## I Want to Test EVATool (Public version)
+
+Public version available at evatool.org
+
+You can technically us it, but it is not recommended...
 
 ## I Want to use EVATool in my Company
 
@@ -17,7 +23,7 @@ First, clone this repository on your server.
 git clone https://github.com/EVATool/evatool
 ```
 
-Navigate to this folder.
+Navigate to the docker folder.
 
 ```
 cd evatool/docker
@@ -41,10 +47,16 @@ EVATool is now running.
 
 ### Update EVATool
 
-If you already have EVATool running on your server and want to update it follow these steps. First navigate to the directory where the repository was cloned to. Pull the repo again to ensure the newest docker compose and settings.
+If you already have EVATool running on your server and want to update it follow these steps. First navigate to the directory of the repository. Pull the repo again to ensure that the newest docker compose and environment settings are present. Double check the values of the .env file.
 
 ```
 git pull https://github.com/EVATool/evatool
+```
+
+Navigate to the docker folder.
+
+```
+cd docker
 ```
 
 Stop the docker compose.
