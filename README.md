@@ -5,6 +5,7 @@
 Public version available at evatool.org
 
 You can technically us it, but it is not recommended...
+# evatool
 
 ## I Want to use EVATool in my Company
 
@@ -40,14 +41,14 @@ There you will find the file .env. It contains various parameters:
 After configuring the parameters you can start EVATool.
 
 ```
-docker-compose -p evatool up
+docker-compose up
 ```
 
 EVATool is now running.
 
 ### Update EVATool
 
-If you already have EVATool running on your server and want to update it follow these steps. First navigate to the directory of the repository. Pull the repo again to ensure that the newest docker compose and environment settings are present. Double check the values of the .env file.
+If you already have EVATool running on your server and want to update it follow these steps. First navigate to the directory where the repository was cloned to. Pull the repo again to ensure the newest docker compose and settings.
 
 ```
 git pull https://github.com/EVATool/evatool
@@ -68,7 +69,7 @@ docker-compose down
 Restart the docker compose.
 
 ```
-docker-compose -p evatool up
+docker-compose up
 ```
 
 ## EVATool Crash Course
@@ -87,16 +88,14 @@ Link to wiki (not yet done) (wiki explains in detail)
 
 ## TODO
 
-- (DONE) Get env vars into frontend
-- (DONE) Get env vars into backend
-- (NOT REALLY A PROBLEM?) Get mysql to start in not 5 minutes (!) and backend must wait for healthy database (only slow on windows docker!! Deployment on internal linux server was SUPER FAST)
-- (DONE) Get docker-compose to work
-- (DONE) Make how to install and wiki stuff in evatool repo
-- Add keycloak to docker compose
+- Rework/Rename GitHub Actions and their steps (better names, no code duplication, actions with arguments [main/dev -> latest/dev docker hub image])
+- Add keycloak to docker compose (Frontend and Backend should have envs: test, dev, prod)
 - (Wait for GP presentation) Deploy to UID server in both main deploy GitHub Actions
 - (Wait for GP presentation) Use UID server as public demo? (add easy login, registration, forgot password + add keycloak!)
+- Add Flyway
 
 
+Upload tags manually:
 Docker save new tag:
 docker pull org/name:latest
 docker tag org/name:latest org/name:newtag
