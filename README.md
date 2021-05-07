@@ -83,7 +83,7 @@ Link to wiki (not yet done) (wiki explains in detail)
 
 ## Known Issues
 
-- Starting the docker compose on docker desktop leads to the database container being extremely slow. It is so slow that the backend container tries to access the booting database and runs into an unhandled exception leading to the backend container stopping. The database container needs 2-5 minutes. The backend container can be manually restarted after that and the EVATool should run.
+- Starting the docker compose on windows 10 (when using Docker Desktop) leads to the database container being extremely slow. It is so slow that the backend container tries to access the booting database and runs into an unhandled exception leading to the backend container stopping. The database container needs 2-5 minutes. The backend container can be manually restarted after that and the EVATool should run.
 
 ## TODO
 
