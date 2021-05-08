@@ -1,3 +1,10 @@
+# EVATool (Ethical Value Assessment Tool)
+
+## I Want to Test EVATool (Public version)
+
+Public version available at evatool.org
+
+You can technically us it, but it is not recommended...
 # evatool
 
 ## I Want to use EVATool in my Company
@@ -17,7 +24,7 @@ First, clone this repository on your server.
 git clone https://github.com/EVATool/evatool
 ```
 
-Navigate to this folder.
+Navigate to the docker folder.
 
 ```
 cd evatool/docker
@@ -34,7 +41,7 @@ There you will find the file .env. It contains various parameters:
 After configuring the parameters you can start EVATool.
 
 ```
-docker-compose -p evatool up
+docker-compose up
 ```
 
 EVATool is now running.
@@ -47,6 +54,12 @@ If you already have EVATool running on your server and want to update it follow 
 git pull https://github.com/EVATool/evatool
 ```
 
+Navigate to the docker folder.
+
+```
+cd docker
+```
+
 Stop the docker compose.
 
 ```
@@ -56,7 +69,7 @@ docker-compose down
 Restart the docker compose.
 
 ```
-docker-compose -p evatool up
+docker-compose up
 ```
 
 ## EVATool Crash Course
@@ -71,7 +84,7 @@ Link to wiki (not yet done) (wiki explains in detail)
 
 ## Known Issues
 
-- Starting the docker compose on docker desktop leads to the database container being extremely slow. It is so slow that the backend container tries to access the booting database and runs into an unhandled exception leading to the backend container stopping. The database container needs 2-5 minutes. The backend container can be manually restarted after that and the EVATool should run.
+- Starting the docker compose on windows 10 (when using Docker Desktop) leads to the database container being extremely slow. It is so slow that the backend container tries to access the booting database and runs into an unhandled exception leading to the backend container stopping. The database container needs 2-5 minutes. The backend container can be manually restarted after that and the EVATool should run.
 
 ## TODO
 

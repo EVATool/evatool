@@ -1,50 +1,87 @@
 version: '3'
 
 volumes:
-    database_volume:
+    backend_database_volume:
+    keycloak_database_volume:
 
 networks:
-    backend:
-    frontend:
+    backend_network: # split into backend and keycloak?
+    frontend_network:
 
 services:
-    database:
-        container_name: evatool_database
+    backend_database:
+        container_name: evatool_backend_database
         image: mysql:8.0.24
         environment:
-            MYSQL_ROOT_PASSWORD: ${DATABASE_PASSWORD}
-        ports:
-            - ${DATABASE_PORT}:3306
+            MYSQL_DATABASE: ${BACKEND_DATABASE_NAME}
+            MYSQL_USER: ${BACKEND_DATABASE_USER}
+            MYSQL_PASSWORD: ${BACKEND_DATABASE_PASSWORD}
+            MYSQL_ROOT_PASSWORD: ${BACKEND_DATABASE_ROOT_PASSWORD}
         networks:
-            - backend
+            - backend_network
         volumes:
-            - database_volume:/var/lib/mysql
+            - backend_database_volume:/var/lib/mysql
+
+    keycloak_database:
+        container_name: evatool_keycloak_database
+        image: postgres:13
+        environment:
+            POSTGRES_DB: ${KEYCLOAK_DATABASE_NAME}
+            POSTGRES_USER: ${KEYCLOAK_DATABASE_USER}
+            POSTGRES_PASSWORD: ${KEYCLOAK_DATABASE_PASSWORD}
+            POSTGRES_ROOT_PASSWORD: ${KEYCLOAK_DATABASE_ROOT_PASSWORD}
+        networks:
+            - backend_network
+        volumes:
+            - keycloak_database_volume:/var/lib/postgresql/data
 
     backend:
         container_name: evatool_backend
         image: evatool/evatool-backend:latest
         environment:
-            DATABASE_PORT: ${DATABASE_PORT}
-            DATABASE_PASSWORD: ${DATABASE_PASSWORD}
+            BACKEND_DATABASE_NAME: ${BACKEND_DATABASE_NAME}
+            BACKEND_DATABASE_PORT: ${BACKEND_DATABASE_PORT}
+            BACKEND_DATABASE_USER: ${BACKEND_DATABASE_USER}
+            BACKEND_DATABASE_PASSWORD: ${BACKEND_DATABASE_PASSWORD}
         ports:
             - ${BACKEND_PORT}:8080
         networks:
-            - backend
-            - frontend
+            - backend_network
+            - frontend_network
         depends_on:
-            - database
+            - backend_database
+            - keycloak
+
+    keycloak:
+        container_name: evatool_keycloak
+        image: quay.io/keycloak/keycloak:13.0.0
+        environment:
+            DB_VENDOR: POSTGRES
+            DB_ADDR: keycloak_database
+            DB_DATABASE: ${KEYCLOAK_DATABASE_NAME}
+            DB_USER: ${KEYCLOAK_DATABASE_USER}
+            DB_PASSWORD: ${KEYCLOAK_DATABASE_PASSWORD}
+            DB_SCHEMA: public
+            KEYCLOAK_USER: ${KEYCLOAK_USER}
+            KEYCLOAK_PASSWORD: ${KEYCLOAK_PASSWORD}
+#            KEYCLOAK_IMPORT: keycloak-auth-realm.json
+#            JDBC_PARAMS: "connectTimeout=30000"
+        ports:
+            - ${KEYCLOAK_PORT}:8080
+        networks:
+            - backend_network
+        depends_on:
+            - keycloak_database
 
     frontend:
         container_name: evatool_frontend
         image: evatool/evatool-frontend:latest
         environment:
-            HOST_URL: ${HOST_URL}
+            BACKEND_URL: ${BACKEND_URL}
             BACKEND_PORT: ${BACKEND_PORT}
         ports:
             - ${FRONTEND_PORT}:80
         networks:
-            - frontend
+            - frontend_network
         depends_on:
             - backend
-
-
