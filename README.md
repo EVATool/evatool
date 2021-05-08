@@ -66,6 +66,12 @@ Stop the docker compose.
 docker-compose down
 ```
 
+Remove unused images in order to ensure newest version is pulled.
+
+```
+docker image prune -f
+```
+
 Restart the docker compose.
 
 ```
