@@ -5,7 +5,7 @@ volumes:
     keycloak_database_volume:
 
 networks:
-    backend_network: # split into backend and keycloak?
+    backend_network:
     frontend_network:
 
 services:
@@ -13,10 +13,10 @@ services:
         container_name: evatool_backend_database
         image: mysql:8.0.24
         environment:
-            MYSQL_DATABASE: ${BACKEND_DATABASE_NAME}
-            MYSQL_USER: ${BACKEND_DATABASE_USER}
-            MYSQL_PASSWORD: ${BACKEND_DATABASE_PASSWORD}
-            MYSQL_ROOT_PASSWORD: ${BACKEND_DATABASE_ROOT_PASSWORD}
+            MYSQL_DATABASE: ${BACKEND_DB}
+            MYSQL_USER: ${BACKEND_DB_USER}
+            MYSQL_PASSWORD: ${BACKEND_DB_PASSWORD}
+            MYSQL_ROOT_PASSWORD: ${BACKEND_DB_ROOT_PASSWORD}
         networks:
             - backend_network
         volumes:
@@ -26,10 +26,10 @@ services:
         container_name: evatool_keycloak_database
         image: postgres:13
         environment:
-            POSTGRES_DB: ${KEYCLOAK_DATABASE_NAME}
-            POSTGRES_USER: ${KEYCLOAK_DATABASE_USER}
-            POSTGRES_PASSWORD: ${KEYCLOAK_DATABASE_PASSWORD}
-            POSTGRES_ROOT_PASSWORD: ${KEYCLOAK_DATABASE_ROOT_PASSWORD}
+            POSTGRES_DB: ${KEYCLOAK_DB}
+            POSTGRES_USER: ${KEYCLOAK_DB_USER}
+            POSTGRES_PASSWORD: ${KEYCLOAK_DB_PASSWORD}
+            POSTGRES_ROOT_PASSWORD: ${KEYCLOAK_DB_ROOT_PASSWORD}
         networks:
             - backend_network
         volumes:
@@ -39,10 +39,11 @@ services:
         container_name: evatool_backend
         image: evatool/evatool-backend:latest
         environment:
-            BACKEND_DATABASE_NAME: ${BACKEND_DATABASE_NAME}
-            BACKEND_DATABASE_PORT: ${BACKEND_DATABASE_PORT}
-            BACKEND_DATABASE_USER: ${BACKEND_DATABASE_USER}
-            BACKEND_DATABASE_PASSWORD: ${BACKEND_DATABASE_PASSWORD}
+            BACKEND_DB_ADDR: backend_database
+            BACKEND_DB: ${BACKEND_DB}
+            BACKEND_DB_PORT: ${BACKEND_DB_PORT}
+            BACKEND_DB_USER: ${BACKEND_DB_USER}
+            BACKEND_DB_PASSWORD: ${BACKEND_DB_PASSWORD}
         ports:
             - ${BACKEND_PORT}:8080
         networks:
@@ -58,9 +59,9 @@ services:
         environment:
             DB_VENDOR: POSTGRES
             DB_ADDR: keycloak_database
-            DB_DATABASE: ${KEYCLOAK_DATABASE_NAME}
-            DB_USER: ${KEYCLOAK_DATABASE_USER}
-            DB_PASSWORD: ${KEYCLOAK_DATABASE_PASSWORD}
+            DB_DATABASE: ${KEYCLOAK_DB}
+            DB_USER: ${KEYCLOAK_DB_USER}
+            DB_PASSWORD: ${KEYCLOAK_DB_PASSWORD}
             DB_SCHEMA: public
             KEYCLOAK_USER: ${KEYCLOAK_USER}
             KEYCLOAK_PASSWORD: ${KEYCLOAK_PASSWORD}
