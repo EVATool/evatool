@@ -24,8 +24,7 @@ services:
 
     keycloak_database:
         container_name: evatool_keycloak_database
-#        image: postgres:13
-        image: postgres
+        image: postgres:13
         environment:
             POSTGRES_DB: ${KEYCLOAK_DATABASE_NAME}
             POSTGRES_USER: ${KEYCLOAK_DATABASE_USER}
@@ -55,10 +54,7 @@ services:
 
     keycloak:
         container_name: evatool_keycloak
-        image: quay.io/keycloak/keycloak:latest
-#        image: quay.io/keycloak/keycloak:13.0.0
-#        image: jboss/keycloak
-#        image: jboss/keycloak:10.0.2
+        image: quay.io/keycloak/keycloak:13.0.0
         environment:
             DB_VENDOR: POSTGRES
             DB_ADDR: keycloak_database
