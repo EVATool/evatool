@@ -3,7 +3,6 @@ version: '3'
 volumes:
     backend_database_volume:
     keycloak_database_volume:
-        driver: local
 
 networks:
     backend_network: # split into backend and keycloak?
@@ -65,7 +64,7 @@ services:
 #        image: jboss/keycloak
 #        image: jboss/keycloak:10.0.2
         environment:
-#            DB_VENDOR: POSTGRES
+            DB_VENDOR: POSTGRES
             DB_ADDR: keycloak_database
             DB_PORT: ${KEYCLOAK_DATABASE_PORT}
             DB_DATABASE: ${KEYCLOAK_DATABASE_NAME}
