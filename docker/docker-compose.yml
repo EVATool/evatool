@@ -44,6 +44,10 @@ services:
             BACKEND_DB_PORT: ${BACKEND_DB_PORT}
             BACKEND_DB_USER: ${BACKEND_DB_USER}
             BACKEND_DB_PASSWORD: ${BACKEND_DB_PASSWORD}
+            KEYCLOAK_ADDR: keycloak
+            KEYCLOAK_PORT: ${KEYCLOAK_PORT}
+            KEYCLOAK_USER: ${KEYCLOAK_USER}
+            KEYCLOAK_PASSWORD: ${KEYCLOAK_USER}
         ports:
             - ${BACKEND_PORT}:8080
         networks:
