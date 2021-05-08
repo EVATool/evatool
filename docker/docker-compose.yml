@@ -17,8 +17,6 @@ services:
             MYSQL_USER: ${BACKEND_DATABASE_USER}
             MYSQL_PASSWORD: ${BACKEND_DATABASE_PASSWORD}
             MYSQL_ROOT_PASSWORD: ${BACKEND_DATABASE_ROOT_PASSWORD}
-        ports:
-            - ${BACKEND_DATABASE_PORT}:3306
         networks:
             - backend_network
         volumes:
