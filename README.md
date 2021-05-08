@@ -90,7 +90,7 @@ Link to wiki (not yet done) (wiki explains in detail)
 
 - (Wait for GP presentation) Rework/Rename GitHub Actions and their steps (better names, no code duplication, actions with arguments [main/dev -> latest/dev docker hub image]) [https://stackoverflow.com/questions/62736315/invoke-github-actions-workflow-manually-and-pass-parameters]
 - (Wait for GP presentation) Deploy to UID server in both main deploy GitHub Actions
-- (Wait for GP presentation) Use UID server as public demo? (add easy login, registration, forgot password + add keycloak!)
+- (Wait for GP presentation) Use UID server as public demo? (Add simple keycloak!)
 - Frontend and Backend should have envs: test, dev, prod
 - Add Flyway
 
