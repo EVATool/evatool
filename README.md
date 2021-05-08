@@ -99,6 +99,7 @@ Link to wiki (not yet done) (wiki explains in detail)
 - (Wait for GP presentation) Use UID server as public demo? (Add simple keycloak!)
 - Frontend and Backend should have envs: test, dev, prod
 - Add Flyway
+- SonarCloud Status not shown in backend
 
 
 
