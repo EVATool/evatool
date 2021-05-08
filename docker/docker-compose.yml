@@ -33,8 +33,6 @@ services:
             POSTGRES_USER: ${KEYCLOAK_DATABASE_USER}
             POSTGRES_PASSWORD: ${KEYCLOAK_DATABASE_PASSWORD}
             POSTGRES_ROOT_PASSWORD: ${KEYCLOAK_DATABASE_ROOT_PASSWORD}
-        ports:
-            - ${KEYCLOAK_DATABASE_PORT}:5432
         networks:
             - backend_network
         volumes:
@@ -66,7 +64,6 @@ services:
         environment:
             DB_VENDOR: POSTGRES
             DB_ADDR: keycloak_database
-            DB_PORT: ${KEYCLOAK_DATABASE_PORT}
             DB_DATABASE: ${KEYCLOAK_DATABASE_NAME}
             DB_USER: ${KEYCLOAK_DATABASE_USER}
             DB_PASSWORD: ${KEYCLOAK_DATABASE_PASSWORD}
