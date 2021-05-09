@@ -30,13 +30,12 @@ Navigate to the docker folder.
 cd evatool/docker
 ```
 
-There you will find the file .env. It contains various parameters:
+There you will find the file .env. It contains various parameters. The most important parameters are:
 
-- HOST_URL: The url or ip of the server EVATool is being installed on
-- BACKEND_PORT: The port used by the backend
-- FRONTEND_PORT: The port used by the frontend
-- DATABASE_PORT: The port used by the database
-- DATABASE_PASSWORD: The password used to access the database
+- BACKEND_URL: The url or ip of the server EVATool is being installed on
+- BACKEND_PORT: The port used by the REST backend
+- FRONTEND_PORT: The port used by the frontend UI
+- KEYCLOAK_PORT: The port used by the keycloak UI
 
 After configuring the parameters you can start EVATool.
 
@@ -90,11 +89,11 @@ Link to wiki (not yet done) (wiki explains in detail)
 
 ## Known Issues
 
-- Starting the docker compose on windows 10 (when using Docker Desktop) leads to the database container being extremely slow. It is so slow that the backend container tries to access the booting database and runs into an unhandled exception leading to the backend container stopping. The database container needs 2-5 minutes. The backend container can be manually restarted after that and the EVATool should run.
+- Starting the docker compose on windows 10 when using Docker Desktop leads to the database container being extremely slow. It is so slow that the backend container tries to access the booting database and runs into an unhandled exception leading to the backend container stopping. The database container needs 2-5 minutes. The backend container can be manually restarted after that and the EVATool should run.
+- The keycloak container cannot be restarted (the keycloak image is not build for that). It has to be deleted and re-created. This is automatically done with docker-compose down.
 
 ## TODO
 
-- (Wait for GP presentation) Rework/Rename GitHub Actions and their steps (better names, no code duplication, actions with arguments [main/dev -> latest/dev docker hub image]) [https://stackoverflow.com/questions/62736315/invoke-github-actions-workflow-manually-and-pass-parameters]
 - (Wait for GP presentation) Deploy to UID server in both main deploy GitHub Actions
 - (Wait for GP presentation) Use UID server as public demo? (Add simple keycloak!)
 - Frontend and Backend should have envs: test, dev, prod
