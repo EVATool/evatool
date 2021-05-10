@@ -90,21 +90,4 @@ Link to wiki (not yet done) (wiki explains in detail)
 ## Known Issues
 
 - Starting the docker compose on windows 10 when using Docker Desktop leads to the database container being extremely slow. It is so slow that the backend container tries to access the booting database and runs into an unhandled exception leading to the backend container stopping. The database container needs 2-5 minutes. The backend container can be manually restarted after that and the EVATool should run.
-- The keycloak container cannot be restarted (the keycloak image is not build for that). It has to be deleted and re-created. This is automatically done with docker-compose down.
-
-## TODO
-
-- (Wait for GP presentation) Deploy to UID server in both main deploy GitHub Actions
-- (Wait for GP presentation) Use UID server as public demo? (Add simple keycloak!)
-- Frontend and Backend should have envs: test, dev, prod
-- Add Flyway
-- SonarCloud Status not shown in backend
-
-
-
-Upload tags manually:
-Docker save new tag:
-docker pull org/name:latest
-docker tag org/name:latest org/name:newtag
-docker login
-docker push org/name:newtag
+- The keycloak container cannot be restarted (the keycloak image is not designed to do that). It has to be deleted and re-created. This is automatically done with docker-compose down.
