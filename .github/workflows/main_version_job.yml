@@ -41,6 +41,6 @@ jobs:
 
       - name: Copy frontend image and tag with version
         run: |
-          docker pull evatool/evatool-frontand:latest
-          docker tag evatool/evatool-frontand:latest evatool/evatool-frontand:${{ env.RELEASE_VERSION }}
-          docker push evatool/evatool-frontand:${{ env.RELEASE_VERSION }}
+          docker pull evatool/evatool-frontend:latest
+          docker tag evatool/evatool-frontend:latest evatool/evatool-frontend:${{ env.RELEASE_VERSION }}
+          docker push evatool/evatool-frontend:${{ env.RELEASE_VERSION }}
