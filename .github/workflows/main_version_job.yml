@@ -39,10 +39,8 @@ jobs:
           docker tag evatool/evatool-backend:latest evatool/evatool-backend:${{ env.RELEASE_VERSION }}
           docker push evatool/evatool-backend:${{ env.RELEASE_VERSION }}
 
-      - name: Image digest
-        run: echo ${{ steps.docker_build.outputs.digest }}
-
-#      - name: Copy frontend image and tag with version
-
-#      - name: Image digest
-#        run: echo ${{ steps.docker_build.outputs.digest }}
+      - name: Copy frontend image and tag with version
+        run: |
+          docker pull evatool/evatool-frontand:latest
+          docker tag evatool/evatool-frontand:latest evatool/evatool-frontand:${{ env.RELEASE_VERSION }}
+          docker push evatool/evatool-frontand:${{ env.RELEASE_VERSION }}
