@@ -1,10 +1,6 @@
 name: Publish version to DockerHub
 
 on:
-  push:
-    branches: [ main ]
-
-on:
   create:
     tags:
 
