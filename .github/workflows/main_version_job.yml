@@ -40,3 +40,10 @@ jobs:
           docker pull evatool/evatool-frontend:latest
           docker tag evatool/evatool-frontend:latest evatool/evatool-frontend:${{ env.RELEASE_VERSION }}
           docker push evatool/evatool-frontend:${{ env.RELEASE_VERSION }}
+
+      - name: Dispatch Tag to Backend
+        run: |
+          curl -X POST https://api.github.com/repos/EVATool/evatool-backend/dispatches \
+          -H 'Accept: application/vnd.github.everest-preview+json' \
+          -u ${{ secrets.ACCESS_TOKEN }} \
+          --data '{"event_type": "ping", "client_payload": { "RELEASE_VERSION": "${{ env.RELEASE_VERSION }}" }}'
