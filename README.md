@@ -79,8 +79,13 @@ docker-compose up
 
 ### Specific version
 
-Clone/Pull with version tag...
-Change version in .env file...
+Clone the specific version you want to install by tag.
+
+```
+git clone --depth 1 --branch <version> https://github.com/EVATool/evatool
+```
+
+Then change version in the .env file too. The available versions can be seen under releases.
 
 ## EVATool Crash Course
 
