@@ -37,7 +37,7 @@ services:
 
     backend:
         container_name: evatool_backend
-        image: evatool/evatool-backend:latest
+        image: evatool/evatool-backend:${EVATOOL_VERSION}
         environment:
             BACKEND_DB_ADDR: backend_database
             BACKEND_DB: ${BACKEND_DB}
@@ -81,7 +81,7 @@ services:
 
     frontend:
         container_name: evatool_frontend
-        image: evatool/evatool-frontend:latest
+        image: evatool/evatool-frontend:${EVATOOL_VERSION}
         environment:
             BACKEND_URL: ${BACKEND_URL}
             BACKEND_PORT: ${BACKEND_PORT}
