@@ -3,7 +3,7 @@ name: Publish version to DockerHub
 on:
   create:
     tags:
-      - '*'
+      - 'v*'
 
 jobs:
   test:
