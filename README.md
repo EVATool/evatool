@@ -77,6 +77,11 @@ Restart the docker compose.
 docker-compose up
 ```
 
+### Specific version
+
+Clone/Pull with version tag...
+Change version in .env file...
+
 ## EVATool Crash Course
 
 Link to wiki (not yet done) (wiki explains in detail)
