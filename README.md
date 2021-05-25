@@ -5,7 +5,6 @@
 Public version available at evatool.org
 
 You can technically us it, but it is not recommended...
-# evatool
 
 ## I Want to use EVATool in my Company
 
