@@ -68,7 +68,7 @@ docker-compose down
 Remove unused images in order to ensure newest version is pulled.
 
 ```
-docker image prune -f
+docker image prune -f -a
 ```
 
 Restart the docker compose.
