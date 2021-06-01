@@ -5,7 +5,6 @@
 Public version available at evatool.org
 
 You can technically us it, but it is not recommended...
-# evatool
 
 ## I Want to use EVATool in my Company
 
@@ -16,6 +15,8 @@ Note: if you want to update EVATool, you have to stop the container first with..
 You need a few things to use EVATool:
 
 - A server or machine you want to run it on
+- The server must have enough ports exposed
+- The server must have an SSL certificate
 - The server needs to have [git](https://git-scm.com/) and [docker](https://www.docker.com/) installed
 
 First, clone this repository on your server.
@@ -65,7 +66,7 @@ Stop the docker compose.
 docker-compose down
 ```
 
-Remove unused images in order to ensure newest version is pulled.
+Remove unused images in order to ensure newest version is pulled (this deletes all unused images on your system).
 
 ```
 docker image prune -f -a
