@@ -85,6 +85,8 @@ services:
         environment:
             BACKEND_URL: ${BACKEND_URL}
             BACKEND_PORT: ${BACKEND_PORT}
+            DEFAULT_LANGUAGE: ${DEFAULT_LANGUAGE}
+            USE_DEFAULT_OVER_BROWSER_LANGUAGE: ${USE_DEFAULT_OVER_BROWSER_LANGUAGE}
         ports:
             - ${FRONTEND_PORT}:80
         networks:
