@@ -97,6 +97,8 @@ Link to wiki (not yet done) (wiki explains in detail)
 
 ### Administration (keycloak and mysql database)
 
+Renaming realms is not supported
+Deleting a realm will not delete the data
 
 ## Known Issues
 
