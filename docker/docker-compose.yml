@@ -41,7 +41,7 @@ services:
         environment:
             BACKEND_PROTOCOL: ${BACKEND_PROTOCOL}
             BACKEND_DB_ADDR: backend_database
-            BACKEND_DB: ${BACKEND_DB}
+            BACKEND_DB: evatooldb
             BACKEND_DB_PORT: 3306
             BACKEND_DB_USER: ${BACKEND_DB_USER}
             BACKEND_DB_PASSWORD: ${BACKEND_DB_PASSWORD}
@@ -65,7 +65,7 @@ services:
         environment:
             DB_VENDOR: POSTGRES
             DB_ADDR: keycloak_database
-            DB_DATABASE: ${AUTH_DB}
+            DB_DATABASE: keycloakdb
             DB_PORT: 5432
             DB_USER: ${AUTH_DB_USER}
             DB_PASSWORD: ${AUTH_DB_PASSWORD}
