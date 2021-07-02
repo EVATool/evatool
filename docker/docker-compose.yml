@@ -39,15 +39,17 @@ services:
         container_name: evatool_backend
         image: evatool/evatool-backend:${EVATOOL_VERSION}
         environment:
+            BACKEND_PROTOCOL: ${BACKEND_PROTOCOL}
             BACKEND_DB_ADDR: backend_database
             BACKEND_DB: ${BACKEND_DB}
             BACKEND_DB_PORT: 3306
             BACKEND_DB_USER: ${BACKEND_DB_USER}
             BACKEND_DB_PASSWORD: ${BACKEND_DB_PASSWORD}
-            AUTH_ADDR: keycloak
+            AUTH_PROTOCOL: ${AUTH_PROTOCOL}
+            AUTH_ENABLED: ${AUTH_ENABLED}
+            AUTH_MULTI_TENANCY_ENABLED: ${AUTH_MULTI_TENANCY_ENABLED}
+            AUTH_ADDR: ${AUTH_ADDR}
             AUTH_PORT: ${AUTH_PORT}
-            AUTH_USER: ${AUTH_USER}
-            AUTH_PASSWORD: ${AUTH_USER}
         ports:
             - ${BACKEND_PORT}:8080
         networks:
@@ -83,10 +85,16 @@ services:
         container_name: evatool_frontend
         image: evatool/evatool-frontend:${EVATOOL_VERSION}
         environment:
-            BACKEND_URL: ${BACKEND_URL}
+            BACKEND_PROTOCOL: ${BACKEND_PROTOCOL}
+            BACKEND_ADDR: ${BACKEND_ADDR}
             BACKEND_PORT: ${BACKEND_PORT}
             DEFAULT_LANGUAGE: ${DEFAULT_LANGUAGE}
             USE_DEFAULT_OVER_BROWSER_LANGUAGE: ${USE_DEFAULT_OVER_BROWSER_LANGUAGE}
+            AUTH_PROTOCOL: ${AUTH_PROTOCOL}
+            AUTH_ENABLED: ${AUTH_ENABLED}
+            AUTH_MULTI_TENANCY_ENABLED: ${AUTH_MULTI_TENANCY_ENABLED}
+            AUTH_ADDR: ${AUTH_ADDR}
+            AUTH_PORT: ${AUTH_PORT}
         ports:
             - ${FRONTEND_PORT}:80
         networks:
