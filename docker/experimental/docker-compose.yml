@@ -48,7 +48,6 @@ services:
             BACKEND_DB_PASSWORD: ${BACKEND_DB_PASSWORD}
             AUTH_ENABLED: ${AUTH_ENABLED}
             AUTH_MULTI_TENANCY_ENABLED: ${AUTH_MULTI_TENANCY_ENABLED}
-            AUTH_ADDR: ${SERVER_ADDR}
             AUTH_PORT: ${AUTH_PORT}
         ports:
             - ${BACKEND_PORT}:8080
