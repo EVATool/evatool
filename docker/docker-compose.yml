@@ -26,10 +26,10 @@ services:
         container_name: evatool_keycloak_database
         image: postgres:13
         environment:
-            POSTGRES_DB: ${KEYCLOAK_DB}
-            POSTGRES_USER: ${KEYCLOAK_DB_USER}
-            POSTGRES_PASSWORD: ${KEYCLOAK_DB_PASSWORD}
-            POSTGRES_ROOT_PASSWORD: ${KEYCLOAK_DB_ROOT_PASSWORD}
+            POSTGRES_DB: ${AUTH_DB}
+            POSTGRES_USER: ${AUTH_DB_USER}
+            POSTGRES_PASSWORD: ${AUTH_DB_PASSWORD}
+            POSTGRES_ROOT_PASSWORD: ${AUTH_DB_ROOT_PASSWORD}
         networks:
             - backend_network
         volumes:
@@ -41,13 +41,13 @@ services:
         environment:
             BACKEND_DB_ADDR: backend_database
             BACKEND_DB: ${BACKEND_DB}
-            BACKEND_DB_PORT: ${BACKEND_DB_PORT}
+            BACKEND_DB_PORT: 3306
             BACKEND_DB_USER: ${BACKEND_DB_USER}
             BACKEND_DB_PASSWORD: ${BACKEND_DB_PASSWORD}
-            KEYCLOAK_ADDR: keycloak
-            KEYCLOAK_PORT: ${KEYCLOAK_PORT}
-            KEYCLOAK_USER: ${KEYCLOAK_USER}
-            KEYCLOAK_PASSWORD: ${KEYCLOAK_USER}
+            AUTH_ADDR: keycloak
+            AUTH_PORT: ${AUTH_PORT}
+            AUTH_USER: ${AUTH_USER}
+            AUTH_PASSWORD: ${AUTH_USER}
         ports:
             - ${BACKEND_PORT}:8080
         networks:
@@ -63,17 +63,17 @@ services:
         environment:
             DB_VENDOR: POSTGRES
             DB_ADDR: keycloak_database
-            DB_DATABASE: ${KEYCLOAK_DB}
-            DB_PORT: ${KEYCLOAK_DB_PORT}
-            DB_USER: ${KEYCLOAK_DB_USER}
-            DB_PASSWORD: ${KEYCLOAK_DB_PASSWORD}
+            DB_DATABASE: ${AUTH_DB}
+            DB_PORT: 5432
+            DB_USER: ${AUTH_DB_USER}
+            DB_PASSWORD: ${AUTH_DB_PASSWORD}
             DB_SCHEMA: public
-            KEYCLOAK_USER: ${KEYCLOAK_USER}
-            KEYCLOAK_PASSWORD: ${KEYCLOAK_PASSWORD}
+            KEYCLOAK_USER: ${AUTH_USER}
+            KEYCLOAK_PASSWORD: ${AUTH_PASSWORD}
 #            KEYCLOAK_IMPORT: keycloak-auth-realm.json
 #            JDBC_PARAMS: "connectTimeout=30000"
         ports:
-            - ${KEYCLOAK_PORT}:8080
+            - ${AUTH_PORT}:8080
         networks:
             - backend_network
         depends_on:
