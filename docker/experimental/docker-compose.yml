@@ -39,13 +39,13 @@ services:
         container_name: evatool_backend
         image: evatool/evatool-backend:${EVATOOL_VERSION}
         environment:
-            BACKEND_PROTOCOL: ${BACKEND_PROTOCOL}
+            SERVER_PROTOCOL: ${SERVER_PROTOCOL}
+            SERVER_ADDR: ${SERVER_ADDR}
             BACKEND_DB_ADDR: backend_database
             BACKEND_DB: evatooldb
             BACKEND_DB_PORT: 3306
             BACKEND_DB_USER: ${BACKEND_DB_USER}
             BACKEND_DB_PASSWORD: ${BACKEND_DB_PASSWORD}
-            AUTH_PROTOCOL: ${AUTH_PROTOCOL}
             AUTH_ENABLED: ${AUTH_ENABLED}
             AUTH_MULTI_TENANCY_ENABLED: ${AUTH_MULTI_TENANCY_ENABLED}
             AUTH_ADDR: ${SERVER_ADDR}
@@ -90,7 +90,6 @@ services:
             BACKEND_PORT: ${BACKEND_PORT}
             DEFAULT_LANGUAGE: ${DEFAULT_LANGUAGE}
             USE_DEFAULT_OVER_BROWSER_LANGUAGE: ${USE_DEFAULT_OVER_BROWSER_LANGUAGE}
-            AUTH_PROTOCOL: ${AUTH_PROTOCOL}
             AUTH_ENABLED: ${AUTH_ENABLED}
             AUTH_MULTI_TENANCY_ENABLED: ${AUTH_MULTI_TENANCY_ENABLED}
             AUTH_PORT: ${AUTH_PORT}
