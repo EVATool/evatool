@@ -13,7 +13,7 @@ services:
         container_name: evatool_backend_database
         image: mysql:8.0.24
         environment:
-            MYSQL_DATABASE: ${BACKEND_DB}
+            MYSQL_DATABASE: evatooldb
             MYSQL_USER: ${BACKEND_DB_USER}
             MYSQL_PASSWORD: ${BACKEND_DB_PASSWORD}
             MYSQL_ROOT_PASSWORD: ${BACKEND_DB_ROOT_PASSWORD}
@@ -26,7 +26,7 @@ services:
         container_name: evatool_keycloak_database
         image: postgres:13
         environment:
-            POSTGRES_DB: ${AUTH_DB}
+            POSTGRES_DB: keycloakdb
             POSTGRES_USER: ${AUTH_DB_USER}
             POSTGRES_PASSWORD: ${AUTH_DB_PASSWORD}
             POSTGRES_ROOT_PASSWORD: ${AUTH_DB_ROOT_PASSWORD}
@@ -48,7 +48,7 @@ services:
             AUTH_PROTOCOL: ${AUTH_PROTOCOL}
             AUTH_ENABLED: ${AUTH_ENABLED}
             AUTH_MULTI_TENANCY_ENABLED: ${AUTH_MULTI_TENANCY_ENABLED}
-            AUTH_ADDR: ${AUTH_ADDR}
+            AUTH_ADDR: ${SERVER_ADDR}
             AUTH_PORT: ${AUTH_PORT}
         ports:
             - ${BACKEND_PORT}:8080
@@ -85,15 +85,14 @@ services:
         container_name: evatool_frontend
         image: evatool/evatool-frontend:${EVATOOL_VERSION}
         environment:
-            BACKEND_PROTOCOL: ${BACKEND_PROTOCOL}
-            BACKEND_ADDR: ${BACKEND_ADDR}
+            SERVER_PROTOCOL: ${SERVER_PROTOCOL}
+            SERVER_ADDR: ${SERVER_ADDR}
             BACKEND_PORT: ${BACKEND_PORT}
             DEFAULT_LANGUAGE: ${DEFAULT_LANGUAGE}
             USE_DEFAULT_OVER_BROWSER_LANGUAGE: ${USE_DEFAULT_OVER_BROWSER_LANGUAGE}
             AUTH_PROTOCOL: ${AUTH_PROTOCOL}
             AUTH_ENABLED: ${AUTH_ENABLED}
             AUTH_MULTI_TENANCY_ENABLED: ${AUTH_MULTI_TENANCY_ENABLED}
-            AUTH_ADDR: ${AUTH_ADDR}
             AUTH_PORT: ${AUTH_PORT}
         ports:
             - ${FRONTEND_PORT}:80
