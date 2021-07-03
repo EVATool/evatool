@@ -71,7 +71,7 @@ services:
             DB_SCHEMA: public
             KEYCLOAK_USER: ${AUTH_USER}
             KEYCLOAK_PASSWORD: ${AUTH_PASSWORD}
-#            KEYCLOAK_IMPORT: keycloak-auth-realm.json
+            KEYCLOAK_IMPORT: /opt/jboss/keycloak/imports/evatool-realm.json
 #            JDBC_PARAMS: "connectTimeout=30000"
         ports:
             - ${AUTH_PORT}:8080
@@ -79,6 +79,8 @@ services:
             - backend_network
         depends_on:
             - keycloak_database
+        volumes:
+          - ./evatool-realm.json:/opt/jboss/keycloak/imports/evatool-realm.json
 
     frontend:
         container_name: evatool_frontend
