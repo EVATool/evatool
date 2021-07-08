@@ -99,6 +99,7 @@ Link to wiki (not yet done) (wiki explains in detail)
 
 Renaming realms is not supported
 Deleting a realm will not delete the data
+The default realm "evatool-realm" should not be deleted
 
 ## Known Issues
 
