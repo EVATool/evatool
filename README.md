@@ -46,6 +46,8 @@ docker-compose up
 
 EVATool is now running.
 
+Note: It is highly recommended to change the passwords of the default realm "evatool-realm" in the keycloak admin console.
+
 ### Update EVATool
 
 If you already have EVATool running on your server and want to update it follow these steps. First navigate to the directory where the repository was cloned to. Pull the repo again to ensure the newest docker compose and settings.
