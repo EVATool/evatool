@@ -46,7 +46,8 @@ docker-compose up
 
 EVATool is now running.
 
-Note: It is highly recommended to change the passwords of the default realm "evatool-realm" in the keycloak admin console.
+Note: keycloak master realm set WebOrigins to *
+Note: It is highly recommended to change the user passwords of the default realm "evatool-realm" in the keycloak admin console.
 
 ### Update EVATool
 
