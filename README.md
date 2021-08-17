@@ -46,6 +46,8 @@ docker-compose up
 
 EVATool is now running.
 
+TODO: check for invalid combinations of env vars
+TODO: conditionally disable containers based on env vars
 Note: keycloak master realm set WebOrigins to *
 Note: It is highly recommended to change the user passwords of the default realm "evatool-realm" in the keycloak admin console.
 
