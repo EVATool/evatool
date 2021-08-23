@@ -18,7 +18,7 @@ You need a few things to use EVATool:
 
 - A server or machine you want to run it on
 - The server must have enough ports exposed
-- The server must have an SSL certificate
+- The server must have an SSL certificate (if any kind of authorization is used)
 - The server needs to have [git](https://git-scm.com/) and [docker](https://www.docker.com/) installed
 
 First, clone this repository on your server.
