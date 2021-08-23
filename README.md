@@ -1,5 +1,7 @@
 # EVATool (Ethical Value Assessment Tool)
 
+TODO: Use scripts in scripts folder to do stuff
+
 ## I Want to Test EVATool (Public version)
 
 Public version available at evatool.org
