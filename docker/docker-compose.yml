@@ -107,11 +107,11 @@ services:
         depends_on:
             - backend
         volumes:
-            - ${SSL_SERVER_CONF}:/etc/nginx/conf.d
+            - ${SSL_SERVER_CONF}:${SSL_SERVER_CONF_TARGET}
             - ${SSL_CERTBOT_CONF}:/etc/letsencrypt
             - ${SSL_CERTBOT_WWW}:/var/www/certbot
 
-    certbot:
+    certbot: # Exit if ssl is disabled!
         container_name: evatool_certbot
         image: certbot/certbot
         volumes:
