@@ -83,7 +83,7 @@ services:
         depends_on:
             - keycloak_database
         volumes:
-          - ./evatool-realm.json:/opt/jboss/keycloak/imports/evatool-realm.json
+          - ./keycloak:/opt/jboss/keycloak/imports
 
     frontend:
         container_name: evatool_frontend
