@@ -83,7 +83,8 @@ services:
         depends_on:
             - keycloak_database
         volumes:
-          - ./keycloak:/opt/jboss/keycloak/imports
+            - ./keycloak:/opt/jboss/keycloak/imports
+        entrypoint: "/bin/sh -c 'if ${AUTH_ENABLED}; then echo \"Auth is disabled, Im out\"; exit 0; fi'"
 
     frontend:
         container_name: evatool_frontend
