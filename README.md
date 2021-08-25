@@ -113,7 +113,7 @@ The default realm "evatool-realm" should not be deleted
 
 ... when inside the docker folder
 
-1. configure .env file to enable SSL
+1. configure .env file to enable SSL (SSL_ENABLED, SSL_SERVER_CONF_TARGET, SERVER_PROTOCOL?)
 2. configure init-letsencrypt.sh (enter an email and replace evatool.org with YOURDOMAIN)
 3. configure nginx/app.conf (replace evatool.org with YOURDOMAIN)
 4. Run init-letsencrypt.sh (if the script fails, it is advised to always delete the data folder to ensure a fresh run the next time you run it)
