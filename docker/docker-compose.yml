@@ -34,7 +34,7 @@ services:
             - backend_network
         volumes:
             - keycloak_database_volume:/var/lib/postgresql/data
-        entrypoint: "/bin/sh -c 'if ! ${AUTH_ENABLED}; then echo \"Auth is disabled, Im out\"; exit 0; fi'"
+        #entrypoint: "/bin/sh -c 'if ! ${AUTH_ENABLED}; then echo \"Auth is disabled, Im out\"; exit 0; fi'"
 
     backend:
         container_name: evatool_backend
@@ -85,7 +85,8 @@ services:
             - keycloak_database
         volumes:
             - ./keycloak:/opt/jboss/keycloak/imports
-        entrypoint: "/bin/sh -c 'if ! ${AUTH_ENABLED}; then echo \"Auth is disabled, Im out\"; exit 0; fi'"
+        # TODO For this to work, add the original entry point after the env var check is done
+        #entrypoint: "/bin/sh -c 'if ! ${AUTH_ENABLED}; then echo \"Auth is disabled, Im out\"; exit 0; fi'"
 
     frontend:
         container_name: evatool_frontend
@@ -103,7 +104,7 @@ services:
         ports:
             - ${FRONTEND_PORT}:80
             - ${FRONTEND_SECURE_PORT}:443
-        # The command freezes the container and makes the website unresponsive, but it is required isnt it?.
+        # The command freezes the container and makes the website unresponsive, but it is required isnt it?. It should be executed asynchronously to the original command.
         #command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
         networks:
             - frontend_network
