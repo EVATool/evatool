@@ -85,6 +85,9 @@ services:
             - keycloak_database
         volumes:
             - ./keycloak:/opt/jboss/keycloak/imports
+            # TODO use real certificate if SSL is enabled (https://hub.docker.com/r/jboss/keycloak/).
+            #- /opt/www/sso/cert/fullchain.pem:/etc/x509/https/tls.crt
+            #- /opt/www/sso/cert/privkey.pem:/etc/x509/https/tls.key
         # TODO For this to work, add the original entry point after the env var check is done.
         # https://github.com/docker/compose/issues/3140
         #entrypoint: "/bin/sh -c 'if ! ${AUTH_ENABLED}; then echo \"Auth is disabled, Im out\"; exit 0; fi'"
