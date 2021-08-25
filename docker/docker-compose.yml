@@ -54,6 +54,9 @@ services:
             AUTH_PASSWORD: ${AUTH_PASSWORD}
             AUTH_ADDR: keycloak
             AUTH_PORT: 8080
+            SSL_ENABLED: ${SSL_ENABLED}
+            SERVER_DOMAIN: ${SERVER_DOMAIN}
+            SSL_KEYSTORE_PASSWORD: ${SSL_KEYSTORE_PASSWORD}
         ports:
             - ${BACKEND_PORT}:8080
         networks:
