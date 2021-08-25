@@ -109,6 +109,19 @@ Renaming realms is not supported
 Deleting a realm will not delete the data
 The default realm "evatool-realm" should not be deleted
 
+## How to Enable SSL in Evatool
+
+... when inside the docker folder
+
+1. configure .env file to enable SSL
+2. configure init-letsencrypt.sh (enter an email and replace evatool.org with YOURDOMAIN)
+3. configure nginx/app.conf (replace evatool.org with YOURDOMAIN)
+4. Run init-letsencrypt.sh (if the script fails, it is advised to always delete the data folder to ensure a fresh run the next time you run it)
+5. Start EvaTool docker-compose
+
+Notes:
+- IMPORTANT: staging MUST be 0 (NOT 1) in init-letsencrypt.sh)
+
 ## Known Issues
 
 - Starting the docker compose on windows 10 when using Docker Desktop leads to the database container being extremely slow. It is so slow that the backend container tries to access the booting database and runs into an unhandled exception leading to the backend container stopping. The database container needs 2-5 minutes. The backend container can be manually restarted after that and the EVATool should run.
