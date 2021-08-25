@@ -66,7 +66,7 @@ services:
             - backend_database
             - keycloak
         volumes:
-            # TODO This also has to work if ssl is disabled or the file is not there!
+            # TODO make resistent to files not existing!
             - ./data/certbot/conf/live/${SERVER_DOMAIN}/keystore.p12:/etc/letsencrypt/live/www.${SERVER_DOMAIN}/keystore.p12
 
     keycloak:
@@ -84,16 +84,16 @@ services:
             KEYCLOAK_PASSWORD: ${AUTH_PASSWORD}
             KEYCLOAK_IMPORT: /opt/jboss/keycloak/imports/evatool-realm.json
         ports:
-            - ${AUTH_PORT}:8443
+            - ${AUTH_PORT}:${AUTH_PORT_INTERNAL_KEYCLOAK}
         networks:
             - backend_network
         depends_on:
             - keycloak_database
         volumes:
+            # TODO make resistent to files not existing!
             - ./keycloak:/opt/jboss/keycloak/imports
-            # TODO use real certificate if SSL is enabled (https://hub.docker.com/r/jboss/keycloak/).
-            #- /opt/www/sso/cert/fullchain.pem:/etc/x509/https/tls.crt
-            #- /opt/www/sso/cert/privkey.pem:/etc/x509/https/tls.key
+            - ./data/certbot/conf/live/${SERVER_DOMAIN}/fullchain.pem:/etc/x509/https/tls.crt
+            - ./data/certbot/conf/live/${SERVER_DOMAIN}/privkey.pem:/etc/x509/https/tls.key
         # TODO For this to work, add the original entry point after the env var check is done.
         # https://github.com/docker/compose/issues/3140
         #entrypoint: "/bin/sh -c 'if ! ${AUTH_ENABLED}; then echo \"Auth is disabled, Im out\"; exit 0; fi'"
