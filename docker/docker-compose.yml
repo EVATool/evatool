@@ -62,6 +62,9 @@ services:
         depends_on:
             - backend_database
             - keycloak
+        volumes:
+            - ./data/certbot/conf/live/${SERVER_DOMAIN}:/etc/letsencrypt/live/www.${SERVER_DOMAIN}/keystore.p12
+        # TODO How to get the generated keystore.p12 file into docker?
 
     keycloak:
         container_name: evatool_keycloak

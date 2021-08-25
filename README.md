@@ -117,7 +117,10 @@ The default realm "evatool-realm" should not be deleted
 2. configure init-letsencrypt.sh (enter an email and replace evatool.org with YOURDOMAIN)
 3. configure nginx/app.conf (replace evatool.org with YOURDOMAIN)
 4. Run init-letsencrypt.sh (if the script fails, it is advised to always delete the data folder to ensure a fresh run the next time you run it)
-5. Start EvaTool docker-compose
+5. TODO: Transform files in /data/certbot/conf/live/YOURDOMAIN with
+    openssl pkcs12 -export -in fullchain.pem -inkey privkey.pem -out keystore.p12 -name tomcat -CAfile chain.pem -caname root
+    Set the environment variable ??? in the .env file to the password you used for conversion.
+6. Start EvaTool docker-compose
 
 Notes:
 - IMPORTANT: staging MUST be 0 (NOT 1) in init-letsencrypt.sh)
