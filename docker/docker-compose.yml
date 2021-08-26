@@ -52,7 +52,7 @@ services:
             AUTH_REGISTRATION_ENABLED: ${AUTH_REGISTRATION_ENABLED}
             AUTH_USER: ${AUTH_USER}
             AUTH_PASSWORD: ${AUTH_PASSWORD}
-            AUTH_ADDR: ${SERVER_DOMAIN}
+            AUTH_ADDR: ${AUTH_ADDR}
             AUTH_PORT: ${AUTH_PORT}
             SSL_ENABLED: ${SSL_ENABLED}
             SERVER_DOMAIN: ${SERVER_DOMAIN}
