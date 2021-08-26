@@ -40,7 +40,6 @@ services:
         container_name: evatool_backend
         image: evatool/evatool-backend:${EVATOOL_VERSION}
         environment:
-            SERVER_PROTOCOL: ${SERVER_PROTOCOL}
             SERVER_ADDR: ${SERVER_ADDR}
             BACKEND_DB_ADDR: backend_database
             BACKEND_DB: evatooldb
@@ -52,9 +51,6 @@ services:
             AUTH_REGISTRATION_ENABLED: ${AUTH_REGISTRATION_ENABLED}
             AUTH_USER: ${AUTH_USER}
             AUTH_PASSWORD: ${AUTH_PASSWORD}
-            AUTH_ADDR: ${AUTH_ADDR}
-            AUTH_PORT: ${AUTH_PORT}
-            AUTH_PORT_INTERNAL_BACKEND: ${AUTH_PORT_INTERNAL_BACKEND}
             SSL_ENABLED: ${SSL_ENABLED}
             SERVER_DOMAIN: ${SERVER_DOMAIN}
             SSL_KEYSTORE_PASSWORD: ${SSL_KEYSTORE_PASSWORD}
