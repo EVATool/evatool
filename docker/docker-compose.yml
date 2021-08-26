@@ -53,7 +53,7 @@ services:
             AUTH_USER: ${AUTH_USER}
             AUTH_PASSWORD: ${AUTH_PASSWORD}
             AUTH_ADDR: keycloak
-            AUTH_PORT: 8080
+            AUTH_PORT: ${AUTH_PORT_INTERNAL_KEYCLOAK}
             SSL_ENABLED: ${SSL_ENABLED}
             SERVER_DOMAIN: ${SERVER_DOMAIN}
             SSL_KEYSTORE_PASSWORD: ${SSL_KEYSTORE_PASSWORD}
