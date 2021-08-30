@@ -48,7 +48,7 @@ TODO: conditionally disable containers based on env vars
 
 Note: keycloak master realm set WebOrigins to *
     -> TODO new steps with enabled CSRF and disabled CORS
-    Dont forget master realm WebOrigins set to * (is this necessary in prod environment? What are the settings on evatool.org?)
+    Dont forget: master realm -> admin-cli -> WebOrigins set to * (is this necessary in prod environment? What are the settings on evatool.org?)
 Note: if registration is enabled, you should delete the predefined users of evatool-realm.
 Note: It is highly recommended to change the user passwords of the default realm "evatool-realm" in the keycloak admin console.
 
