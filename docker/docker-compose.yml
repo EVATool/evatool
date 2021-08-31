@@ -40,7 +40,7 @@ services:
         container_name: evatool_backend
         image: evatool/evatool-backend:${EVATOOL_VERSION}
         environment:
-            SERVER_DOMAIN: ${SERVER_DOMAIN}
+            SERVER_ADDR: ${SERVER_ADDR}
             BACKEND_DB_ADDR: backend_database
             BACKEND_DB: evatooldb
             BACKEND_DB_PORT: 3306
@@ -63,7 +63,7 @@ services:
             - backend_database
             - keycloak
         volumes:
-            - ./data/certbot/conf/live/${SERVER_DOMAIN}/keystore.p12:/etc/letsencrypt/live/www.${SERVER_DOMAIN}/keystore.p12
+            - ./data/certbot/conf/live/${SERVER_ADDR}/keystore.p12:/etc/letsencrypt/live/www.${SERVER_ADDR}/keystore.p12
 
     keycloak:
         container_name: evatool_keycloak
@@ -87,8 +87,8 @@ services:
             - keycloak_database
         volumes:
             - ./keycloak:/opt/jboss/keycloak/imports
-            - ./data/certbot/conf/live/${SERVER_DOMAIN}/fullchain.pem:/etc/x509/https/tls.crt
-            - ./data/certbot/conf/live/${SERVER_DOMAIN}/privkey.pem:/etc/x509/https/tls.key
+            - ./data/certbot/conf/live/${SERVER_ADDR}/fullchain.pem:/etc/x509/https/tls.crt
+            - ./data/certbot/conf/live/${SERVER_ADDR}/privkey.pem:/etc/x509/https/tls.key
         #entrypoint: "/bin/sh -c 'if ! ${AUTH_ENABLED}; then echo \"Auth is disabled, Im out\"; exit 0; fi'"
 
     frontend:
@@ -96,7 +96,7 @@ services:
         image: evatool/evatool-frontend:${EVATOOL_VERSION}
         environment:
             SERVER_PROTOCOL: ${SERVER_PROTOCOL}
-            SERVER_DOMAIN: ${SERVER_DOMAIN}
+            SERVER_ADDR: ${SERVER_ADDR}
             BACKEND_PORT: ${BACKEND_PORT}
             DEFAULT_LANGUAGE: ${DEFAULT_LANGUAGE}
             USE_DEFAULT_OVER_BROWSER_LANGUAGE: ${USE_DEFAULT_OVER_BROWSER_LANGUAGE}
