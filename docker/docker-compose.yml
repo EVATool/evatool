@@ -40,7 +40,7 @@ services:
         container_name: evatool_backend
         image: evatool/evatool-backend:${EVATOOL_VERSION}
         environment:
-            SERVER_ADDR: ${SERVER_ADDR}
+            SERVER_ADDR: ${SERVER_DOMAIN}
             BACKEND_DB_ADDR: backend_database
             BACKEND_DB: evatooldb
             BACKEND_DB_PORT: 3306
@@ -97,7 +97,7 @@ services:
         image: evatool/evatool-frontend:${EVATOOL_VERSION}
         environment:
             SERVER_PROTOCOL: ${SERVER_PROTOCOL}
-            SERVER_ADDR: ${SERVER_ADDR}
+            SERVER_ADDR: ${SERVER_DOMAIN}
             BACKEND_PORT: ${BACKEND_PORT}
             DEFAULT_LANGUAGE: ${DEFAULT_LANGUAGE}
             USE_DEFAULT_OVER_BROWSER_LANGUAGE: ${USE_DEFAULT_OVER_BROWSER_LANGUAGE}
