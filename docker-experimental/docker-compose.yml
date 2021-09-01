@@ -52,7 +52,6 @@ services:
             AUTH_USER: ${AUTH_USER}
             AUTH_PASSWORD: ${AUTH_PASSWORD}
             SSL_ENABLED: ${SSL_ENABLED}
-            SERVER_DOMAIN: ${SERVER_DOMAIN}
             SSL_KEYSTORE_PASSWORD: ${SSL_KEYSTORE_PASSWORD}
             LOG_LEVEL: ${LOG_LEVEL}
         ports:
@@ -64,7 +63,7 @@ services:
             - backend_database
             - keycloak
         volumes:
-            - ./data/certbot/conf/live/${SERVER_DOMAIN}/keystore.p12:/etc/letsencrypt/live/www.${SERVER_DOMAIN}/keystore.p12
+            - ./data/certbot/conf/live/${SERVER_ADDR}/keystore.p12:/etc/letsencrypt/live/www.${SERVER_ADDR}/keystore.p12
 
     keycloak:
         container_name: evatool_keycloak
@@ -88,8 +87,8 @@ services:
             - keycloak_database
         volumes:
             - ./keycloak:/opt/jboss/keycloak/imports
-            - ./data/certbot/conf/live/${SERVER_DOMAIN}/fullchain.pem:/etc/x509/https/tls.crt
-            - ./data/certbot/conf/live/${SERVER_DOMAIN}/privkey.pem:/etc/x509/https/tls.key
+            - ./data/certbot/conf/live/${SERVER_ADDR}/fullchain.pem:/etc/x509/https/tls.crt
+            - ./data/certbot/conf/live/${SERVER_ADDR}/privkey.pem:/etc/x509/https/tls.key
         #entrypoint: "/bin/sh -c 'if ! ${AUTH_ENABLED}; then echo \"Auth is disabled, Im out\"; exit 0; fi'"
 
     frontend:
@@ -122,10 +121,10 @@ services:
             - ./data/certbot/conf:/etc/letsencrypt
             - ./data/certbot/www:/var/www/certbot
 
-    certbot:
-        container_name: evatool_certbot
-        image: certbot/certbot
-        volumes:
-            - ./data/certbot/conf:/etc/letsencrypt
-            - ./data/certbot/www:/var/www/certbot
-        entrypoint: "/bin/sh -c 'if ! ${SSL_ENABLED}; then echo \"SSL is disabled, Im out\"; exit 0; fi; trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+    #certbot:
+    #    container_name: evatool_certbot
+    #    image: certbot/certbot
+    #    volumes:
+    #        - ./data/certbot/conf:/etc/letsencrypt
+    #        - ./data/certbot/www:/var/www/certbot
+        #entrypoint: "/bin/sh -c 'if ! ${SSL_ENABLED}; then echo \"SSL is disabled, Im out\"; exit 0; fi; trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
