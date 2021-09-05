@@ -1,0 +1,128 @@
+{
+    "analyses": [
+        {
+            "requirements": [],
+            "values": [
+                {
+                    "archived": false,
+                    "name": "Profitabilität",
+                    "description": "Hoher Gewinn; niedrige Kosten",
+                    "id": "0b2094f4-e45e-458d-8a6c-823be670095a",
+                    "type": "ECONOMIC"
+                },
+                {
+                    "archived": false,
+                    "name": "Gelegenheit",
+                    "description": "Möglichkeiten weitere Produkte/Dienstleistungen zu verkaufen; bzw. Premiumvarianten",
+                    "id": "a3f611ef-4ee7-4400-bf98-bb08846ae5d1",
+                    "type": "ECONOMIC"
+                },
+                {
+                    "archived": false,
+                    "name": "Verlässlichkeit",
+                    "description": "Niedrige Instanzsetzung und Wartungskosten durch hohe Verlässlichkeit",
+                    "id": "1a21c18f-3fda-4dce-9f90-9bae64b4f9f0",
+                    "type": "ECONOMIC"
+                },
+                {
+                    "archived": false,
+                    "name": "Sicherheit",
+                    "description": "Einerseits technische Aspekte betreffend (die bei Nicht-Gewährleistung schwere Schäden und moralische Probleme\n hervorrufen kann). Andererseits die „gefühlte“ Sicherheit, die das \nVerhältnis zur sozialen und technischen Umwelt beschreibt und eng mit \nVertrautheit verbunden ist.   \n",
+                    "id": "00490d3f-20e2-469b-9444-dc7482b3cb75",
+                    "type": "SOCIAL"
+                },
+                {
+                    "archived": false,
+                    "name": "Fürsorge",
+                    "description": "Die Fähigkeit, für andere als sich selbst Sorge zu tragen und Bedürftigen in ihrer Selbstbestimmung zuzuarbeiten. \n",
+                    "id": "8d23ce24-978c-4bbd-95be-fcea392cd7b0",
+                    "type": "SOCIAL"
+                },
+                {
+                    "archived": false,
+                    "name": "Selbstbestimmung",
+                    "description": "Maximale Entscheidungs- und Handlungsfreiheit sowie die Möglichkeit, persönliche Lebensziele zu bestimmen und umzusetzen. \n",
+                    "id": "29b52cf9-fe46-4f42-bd29-ecaae96b0932",
+                    "type": "SOCIAL"
+                },
+                {
+                    "archived": false,
+                    "name": "Teilhabe",
+                    "description": "Das Zusprechen von Zugängen, Rechten und Gütern mit dem Ziel, in die \nGesellschaft eingebunden zu sein (auch in unterschiedlichen Lebensphasen\n und -lagen).\n",
+                    "id": "fc0002f5-b32e-4cd4-809b-ac1e1f1be658",
+                    "type": "SOCIAL"
+                },
+                {
+                    "archived": false,
+                    "name": "Selbsterständnis",
+                    "description": "Es stellen sich Fragen nach Möglichkeiten und Bedingungen an das \neigene Leben und inwiefern technische Systeme die Gestaltung und Annahme\n der Lebensaufgabe beeinflussen.\n",
+                    "id": "2cfa999b-4186-4bbc-a1a6-bee279335672",
+                    "type": "SOCIAL"
+                },
+                {
+                    "archived": false,
+                    "name": "Gerechtigkeit",
+                    "description": "Als ethische Forderung für einzelne Personen in ihren individuellen \nSituationen sowie für die Gesellschaft, wenn es um die Verteilung von \nRessourcen geht. \n",
+                    "id": "21c66689-634b-4304-ba73-5c254f7895de",
+                    "type": "SOCIAL"
+                },
+                {
+                    "archived": false,
+                    "name": "Privatheit",
+                    "description": "Individueller Lebensraum, der vor öffentlicher Beobachtung geschützt ist, infolge der Digitalisierung jedoch oftmals tangiert wird und sich daher (ethische) Fragen hinsichtlich Akzeptanz und Grenzen ergeben. \n",
+                    "id": "c8f15d69-0c0b-4e1e-afa8-adcef8d07440",
+                    "type": "SOCIAL"
+                }
+            ],
+            "stakeholders": [
+                {
+                    "level": "INDIVIDUAL",
+                    "name": "Bewohner",
+                    "id": "ad952992-05b2-490b-9e31-e7a565b7e8d0",
+                    "priority": "FOUR"
+                },
+                {
+                    "level": "INDIVIDUAL",
+                    "name": "Installateur",
+                    "id": "bdc6b4cc-8dcb-4d6f-8c92-778320d19206",
+                    "priority": "TWO"
+                },
+                {
+                    "level": "INDIVIDUAL",
+                    "name": "Helpdesk",
+                    "id": "06b8cb63-5ebd-45d4-b3fd-befbcac9e2f8",
+                    "priority": "ONE"
+                },
+                {
+                    "level": "ORGANIZATION",
+                    "name": "Systemintegrator",
+                    "id": "7da049e7-254d-4420-aa86-57487a24fd31",
+                    "priority": "THREE"
+                },
+                {
+                    "level": "ORGANIZATION",
+                    "name": "Notrufzentrale",
+                    "id": "3e7d06a1-b17c-44c1-a86b-7e2f64a30872",
+                    "priority": "TWO"
+                },
+                {
+                    "level": "SOCIETY",
+                    "name": "Gesellschaft",
+                    "id": "31730279-9e8f-4366-b935-d9a724c797a3",
+                    "priority": "TWO"
+                }
+            ],
+            "impacts": [],
+            "variants": [],
+            "analysis": {
+                "isTemplate": false,
+                "imageUrl": "https://images.unsplash.com/photo-1558089687-f282ffcbc126?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2551&q=80",
+                "name": "Sprachassistenz",
+                "description": "Wie kann eine Sprachassistenz im AAL Kontext ethisch gestaltet werden?",
+                "id": "1b6f15fb-645e-4d30-91ee-554d99cd792f"
+            },
+            "requirementDeltas": []
+        }
+    ],
+    "importExportVersion": "0.0.1"
+}
