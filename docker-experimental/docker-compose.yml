@@ -53,7 +53,7 @@ services:
             AUTH_PASSWORD: ${AUTH_PASSWORD}
             SSL_ENABLED: ${SSL_ENABLED}
             SSL_KEYSTORE_PASSWORD: ${SSL_KEYSTORE_PASSWORD}
-            LOG_LEVEL: ${LOG_LEVEL}
+            BACKEND_LOG_LEVEL: ${BACKEND_LOG_LEVEL}
         ports:
             - ${BACKEND_PORT}:8080
         networks:
@@ -79,6 +79,7 @@ services:
             KEYCLOAK_USER: ${AUTH_USER}
             KEYCLOAK_PASSWORD: ${AUTH_PASSWORD}
             KEYCLOAK_IMPORT: /opt/jboss/keycloak/imports/evatool-realm.json
+            KEYCLOAK_LOGLEVEL: ${AUTH_LOG_LEVEL}
         ports:
             - ${AUTH_PORT}:${AUTH_PORT_INTERNAL_KEYCLOAK}
         networks:
@@ -104,7 +105,7 @@ services:
             AUTH_MULTI_TENANCY_ENABLED: ${AUTH_MULTI_TENANCY_ENABLED}
             AUTH_REGISTRATION_ENABLED: ${AUTH_REGISTRATION_ENABLED}
             AUTH_PORT: ${AUTH_PORT}
-            LOG_LEVEL: ${LOG_LEVEL}
+            FRONTEND_LOG_LEVEL: ${FRONTEND_LOG_LEVEL}
         ports:
             - ${FRONTEND_PORT}:80
             - ${FRONTEND_SECURE_PORT}:443
