@@ -1,8 +1,7 @@
-name: Perform automated penetration testing (security)
+name: Perform Pentest
 
 on:
-  push:
-    branches: [ security ]
+  workflow_dispatch:
 
 jobs:
   deploy:
