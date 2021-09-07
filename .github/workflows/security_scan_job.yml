@@ -1,4 +1,8 @@
-name: Perform automated penetration testing
+name: Perform automated penetration testing (security)
+
+on:
+  push:
+    branches: [ security ]
 
 jobs:
   deploy:
