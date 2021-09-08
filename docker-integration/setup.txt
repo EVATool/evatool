@@ -1,0 +1,14 @@
+
+
+
+
+
+
+TODO: can this override env vars?
+env $(cat .env.test) docker-compose up
+
+
+
+
+
+

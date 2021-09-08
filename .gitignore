@@ -1,3 +1,4 @@
 # Ignore SSL data
 docker/data
 docker-experimental/data
+docker-integration/data
