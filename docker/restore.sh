@@ -16,5 +16,4 @@ docker container run --rm \
            -v evatool_keycloak_database_volume:/to \
            alpine ash -c "cd /from ; cp -arv . /to"
 
-# Start docker-compose with EVATOOL_VERSION overwritten to backend.
-docker-compose up -d
+ echo "Set EVATOOL_VERSION in the .env file to 'backend' and run docker-compose up -d"
