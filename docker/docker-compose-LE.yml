@@ -1,12 +1,13 @@
 version: '3.4'
 
 services:
-  letsencrypt:
-    image: certbot/certbot:latest
-    command: sh -c "certbot renew"
-    entrypoint: ""
-    volumes:
-      - ./data/certbot/conf:/etc/letsencrypt
-      - ./data/certbot/www:/var/www/certbot
-    environment:
-      - TERM=xterm
+    certbot:
+        container_name: evatool_certbot
+        image: certbot/certbot:latest
+        command: sh -c "certbot renew -d ${SERVER_ADDR}"
+        entrypoint: ""
+        volumes:
+            - ./data/certbot/conf:/etc/letsencrypt
+            - ./data/certbot/www:/var/www/certbot
+        environment:
+            - TERM=xterm
