@@ -1,4 +1,4 @@
-# Navigate to the directory with this script starting from the home directoy of the user.
+# Navigate to the absolute directory that contains this script.
 cd 
 
 # Shutdown evatool.
