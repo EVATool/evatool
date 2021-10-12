@@ -3,7 +3,7 @@ version: '3.4'
 services:
   letsencrypt:
     image: certbot/certbot:latest
-    command: sh -c "certbot certonly --standalone -d ${SERVER_ADDR} --text --agree-tos --email you@example.com --server https://acme-v02.api.letsencrypt.org/directory --rsa-key-size 4096 --verbose --keep-until-expiring --preferred-challenges=http"
+    command: sh -c "certbot certonly --standalone -d ${SERVER_ADDR} --text --agree-tos --server https://acme-v02.api.letsencrypt.org/directory --rsa-key-size 4096 --verbose --keep-until-expiring --preferred-challenges=http"
     entrypoint: ""
     volumes:
       #- ./data/certbot:/etc/letsencrypt
