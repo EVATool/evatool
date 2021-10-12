@@ -125,6 +125,7 @@ The default realm "evatool-realm" should not be deleted
 8. Add the following line to the crontab job list (open with crontab -e)
    0 2 * * * "ABSOLUTE PATH TO cert-renew.sh script"
    without the quotation marks. The path to the script must be absolue.
+   This job will renew the certificate every day at 2am (if it will expire soon) and restart the docker-compose to pass the new certificate to all containers.
 
 Notes:
 - IMPORTANT: staging MUST be 0 (NOT 1) in init-letsencrypt.sh)
