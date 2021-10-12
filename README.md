@@ -127,5 +127,5 @@ Notes:
 ## Known Issues
 
 - Starting the docker compose on windows 10 when using Docker Desktop leads to the database container being extremely slow. It is so slow that the backend container tries to access the booting database and runs into an unhandled exception leading to the backend container stopping. The database container needs 2-5 minutes. The backend container can be manually restarted after that and the EVATool should run.
-- Even on linux, the database containers are sometimes too slow and make the containers relying on them fail. This will only happend once. Restard with docker-compose down and docker-compose up once the database containers are initialized and it won't happen again once the volumes are initialized.
+- Even on linux, the database containers are sometimes too slow and make the containers relying on them fail. This will only happend once. Restart with docker-compose down and docker-compose up once the database containers are initialized and it won't happen again once the volumes are initialized.
 - The keycloak container cannot be restarted (the keycloak image is not designed to do that). It has to be deleted and re-created. This is automatically done with docker-compose down.
