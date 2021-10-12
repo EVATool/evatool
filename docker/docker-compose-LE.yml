@@ -3,10 +3,23 @@ version: '3.4'
 services:
   letsencrypt:
     image: certbot/certbot:latest
-    command: sh -c "certbot certonly --standalone -d ${SERVER_ADDR} --text --agree-tos --server https://acme-v02.api.letsencrypt.org/directory --rsa-key-size 4096 --verbose --keep-until-expiring --preferred-challenges=http"
+    #command: sh -c "certbot certonly --standalone -d ${SERVER_ADDR} --text --agree-tos --server https://acme-v02.api.letsencrypt.org/directory --rsa-key-size 4096 --verbose --keep-until-expiring --preferred-challenges=http"
+    command: sh -c "do certbot renew;"
     entrypoint: ""
     volumes:
       - ./data/certbot/conf:/etc/letsencrypt
       - ./data/certbot/www:/var/www/certbot
     environment:
       - TERM=xterm
+
+
+
+
+
+    #certbot:
+    #    container_name: evatool_certbot
+    #    image: certbot/certbot
+    #    volumes:
+    #        - ./data/certbot/conf:/etc/letsencrypt
+    #        - ./data/certbot/www:/var/www/certbot
+        #entrypoint: " do certbot renew; sleep 12h & wait $${!}; done;'"
