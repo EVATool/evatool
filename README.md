@@ -123,8 +123,8 @@ The default realm "evatool-realm" should not be deleted
 7. Adjust the cd command in cert-renew.sh depending on the directory setup on your machine.
    (cron scripts start with the home directory of the current user as pwd)
 8. Add the following line to the crontab job list (open with crontab -e)
-   0 2 * * * "ABSOLUTE PATH TO cert-renew.sh script"
-   without the quotation marks. The path to the script must be absolue.
+   0 2 * * * ABSOLUTE PATH TO cert-renew.sh
+   without the quotation marks. The path to the script must be absolute for cron to work properly.
    This job will renew the certificate every day at 2am (if it will expire soon) and restart the docker-compose to pass the new certificate to all containers.
 
 Notes:
