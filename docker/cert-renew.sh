@@ -1,4 +1,4 @@
-#docker-compose down
+docker-compose down
 
 # Renew certificate with certbot.
 docker-compose -f docker-compose-LE.yml up
@@ -22,4 +22,4 @@ done < "$input"
 cd ./data/certbot/conf/live/$addr
 openssl pkcs12 -export -in fullchain.pem -inkey privkey.pem -out keystore.p12 -name tomcat -CAfile chain.pem -caname root -password pass:$pw
 
-#docker-compose up -d
+docker-compose up -d
