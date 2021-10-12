@@ -6,8 +6,13 @@ input=".env"
 while IFS= read -r line
 do
   if [[ $line == SERVER_ADDR* ]] ; then
-    addr=$line
+    addr=${line//SERVER_ADDR=/}
     echo $addr
+  fi
+
+  if [[ $line == SSL_KEYSTORE_PASSWORD* ]] ; then
+    pw=${line//SSL_KEYSTORE_PASSWORD=/}
+    echo $pw
   fi
 done < "$input"
 
