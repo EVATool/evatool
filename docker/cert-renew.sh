@@ -1,8 +1,11 @@
-# Renew certificate with certbot.
-docker-compose -f docker-compose-LE.yml up
-
 # Shutdown evatool.
 docker-compose down
+
+# Start nginx
+docker-compose up --force-recreate -d frontend
+
+# Renew certificate with certbot.
+docker-compose -f docker-compose-LE.yml up
 
 # Extract SERVER_ADDR and SSL_KEYSTORE_PASSWORD from .env file.
 input=".env"
