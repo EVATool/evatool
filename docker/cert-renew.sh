@@ -1,3 +1,6 @@
+# Navigate to the directory with this script starting from the home directoy of the user.
+cd 
+
 # Shutdown evatool.
 docker-compose down
 

@@ -116,11 +116,15 @@ The default realm "evatool-realm" should not be deleted
 3. configure nginx/app.conf (replace evatool.org with YOURDOMAIN)
 4. Run init-letsencrypt.sh (if the script fails, it is advised to always delete the data folder to ensure a fresh run the next time you run it)
 5. Transform files in /data/certbot/conf/live/YOURDOMAIN with
-    openssl pkcs12 -export -in fullchain.pem -inkey privkey.pem -out keystore.p12 -name tomcat -CAfile chain.pem -caname root
-      (You will be prompted to enter a password after executing the above command)
-    Set the environment variable SSL_KEYSTORE_PASSWORD in the .env file to the password you used for conversion.
+   openssl pkcs12 -export -in fullchain.pem -inkey privkey.pem -out keystore.p12 -name tomcat -CAfile chain.pem -caname root
+     (You will be prompted to enter a password after executing the above command)
+   Set the environment variable SSL_KEYSTORE_PASSWORD in the .env file to the password you used for conversion.
 6. Start EvaTool docker-compose
-7. TODO setup automated renewable of certificate
+7. As appropriate, adjust the cd command in cert-renew.sh depending on the directory setup on your machine.
+   (cron scripts start with the home directory of the current user as pwd)
+8. Add the following line to the crontab job list (open with crontab -e)
+   0 2 * * * "ABSOLUTE PATH TO cert-renew.sh script"
+   without the quotation marks. The path to the script must be absolue.
 
 Notes:
 - IMPORTANT: staging MUST be 0 (NOT 1) in init-letsencrypt.sh)
