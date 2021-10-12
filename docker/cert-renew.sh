@@ -1,7 +1,8 @@
-docker-compose down
-
 # Renew certificate with certbot.
 docker-compose -f docker-compose-LE.yml up
+
+# Shutdown evatool.
+docker-compose down
 
 # Extract SERVER_ADDR and SSL_KEYSTORE_PASSWORD from .env file.
 input=".env"
@@ -21,5 +22,7 @@ done < "$input"
 # Re-encrypt certificate for keystore (used by spring backend).
 cd ./data/certbot/conf/live/$addr
 openssl pkcs12 -export -in fullchain.pem -inkey privkey.pem -out keystore.p12 -name tomcat -CAfile chain.pem -caname root -password pass:$pw
+cd ../../../../../
 
+# Restart evatool.
 docker-compose up -d
