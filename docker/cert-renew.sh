@@ -19,6 +19,7 @@ done < "$input"
 
 # Re-encrypt certificate for keystore (used by spring backend).
 cd ./data/certbot/conf/live/$addr
-openssl pkcs12 -export -in fullchain.pem -inkey privkey.pem -out keystore.p12 -name tomcat -CAfile chain.pem -caname root -password $pw
+openssl pkcs12 -export -in fullchain.pem -inkey privkey.pem -out keystore.p12 -name tomcat -CAfile chain.pem -caname root -password pass:$pw
+cd ../../../../../
 
 #docker-compose up -d
