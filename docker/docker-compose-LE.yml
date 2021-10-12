@@ -1,10 +1,13 @@
 version: '3.4'
 
 services:
-  certbot:
-      image: certbot/certbot
-      restart: unless-stopped
-      volumes:
-        - ./data/certbot/conf:/etc/letsencrypt
-        - ./data/certbot/www:/var/www/certbot
-      entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+
+  letsencrypt:
+    image: certbot/certbot:latest
+    command: sh -c "certbot renew"
+    entrypoint: ""
+    volumes:
+          - ./data/certbot/conf:/etc/letsencrypt
+      - ./data/certbot/www:/var/www/certbot
+    environment:
+      - TERM=xterm
