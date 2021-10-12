@@ -120,7 +120,7 @@ The default realm "evatool-realm" should not be deleted
      (You will be prompted to enter a password after executing the above command)
    Set the environment variable SSL_KEYSTORE_PASSWORD in the .env file to the password you used for conversion.
 6. Start EvaTool docker-compose
-7. As appropriate, adjust the cd command in cert-renew.sh depending on the directory setup on your machine.
+7. Adjust the cd command in cert-renew.sh depending on the directory setup on your machine.
    (cron scripts start with the home directory of the current user as pwd)
 8. Add the following line to the crontab job list (open with crontab -e)
    0 2 * * * "ABSOLUTE PATH TO cert-renew.sh script"
