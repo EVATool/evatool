@@ -33,7 +33,7 @@ Navigate to the docker folder.
 cd evatool/docker
 ```
 
-There you will find the file .env. It contains various parameters. The most important parameters are:
+There you will find the file .env. It contains various parameters. You should change all usernames and passwords to differ from the the default values!
 
 After configuring the parameters you can start EVATool.
 
@@ -117,6 +117,7 @@ The default realm "evatool-realm" should not be deleted
 4. Run init-letsencrypt.sh (if the script fails, it is advised to always delete the data folder to ensure a fresh run the next time you run it)
 5. Transform files in /data/certbot/conf/live/YOURDOMAIN with
     openssl pkcs12 -export -in fullchain.pem -inkey privkey.pem -out keystore.p12 -name tomcat -CAfile chain.pem -caname root
+      (You will be prompted to enter a password after executing the above command)
     Set the environment variable SSL_KEYSTORE_PASSWORD in the .env file to the password you used for conversion.
 6. Start EvaTool docker-compose
 7. TODO setup automated renewable of certificate
