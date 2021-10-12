@@ -4,7 +4,7 @@ services:
     certbot:
         container_name: evatool_certbot
         image: certbot/certbot:latest
-        command: sh -c "certbot renew -d ${SERVER_ADDR}"
+        command: sh -c "certbot certonly -d ${SERVER_ADDR}"
         entrypoint: ""
         volumes:
             - ./data/certbot/conf:/etc/letsencrypt
