@@ -118,6 +118,7 @@ The default realm "evatool-realm" should not be deleted
 ADD USER GROUP WITH PERMISSIONS?
 
 4. Run init-letsencrypt.sh (if the script fails, it is advised to always delete the data folder to ensure a fresh run the next time you run it)
+   TODO: you might need to use chmod to change the folder ownership from root to you user... Does this also cause the problems when renewin the certificate?
 5. Transform files in /data/certbot/conf/live/YOURDOMAIN with
    openssl pkcs12 -export -in fullchain.pem -inkey privkey.pem -out keystore.p12 -name tomcat -CAfile chain.pem -caname root
      (You will be prompted to enter a password after executing the above command)
