@@ -1,9 +1,6 @@
 # Navigate to the absolute directory that contains this script.
 cd 
 
-# Shutdown evatool.
-docker-compose down
-
 # Renew certificate with certbot.
 docker-compose -f docker-compose-LE.yml up
 
@@ -28,4 +25,5 @@ openssl pkcs12 -export -in fullchain.pem -inkey privkey.pem -out keystore.p12 -n
 cd ../../../../../
 
 # Restart evatool.
+docker-compose down
 docker-compose up -d
